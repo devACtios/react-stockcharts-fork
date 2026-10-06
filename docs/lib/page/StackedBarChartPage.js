@@ -1,0 +1,40 @@
+
+import React from "react";
+import PropTypes from "prop-types";
+import { TypeChooser } from "react-stockcharts/lib/helper";
+
+import ContentSection from "lib/content-section";
+import Row from "lib/row";
+import Section from "lib/section";
+
+import StackedBarChart from "lib/charts/StackedBarChart";
+
+class StackedBarChartPage extends React.Component {
+
+	render() {
+		return (
+			<ContentSection title={StackedBarChartPage.title}>
+				<Row>
+					<Section colSpan={2}>
+						<TypeChooser>
+							{(type) => (<StackedBarChart data={this.props.groupedBarData} type={type} />)}
+						</TypeChooser>
+					</Section>
+				</Row>
+				<Row>
+					<Section colSpan={2}>
+						<aside dangerouslySetInnerHTML={{ __html: require("md/STACKED-BAR-CHART").default }}></aside>
+					</Section>
+				</Row>
+			</ContentSection>
+		);
+	}
+}
+
+StackedBarChartPage.title = "Stacked Bar Chart";
+
+StackedBarChartPage.propTypes = {
+	groupedBarData: PropTypes.array,
+};
+
+export default StackedBarChartPage;

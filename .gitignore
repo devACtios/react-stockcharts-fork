@@ -1,0 +1,12 @@
+.DS_Store
+node_modules
+build
+.idea
+.vs
+.vscode
+.tmp
+.sass-cache
+package-lock.json
+/tmp
+.fuse*
+npm-debug.log
